@@ -1,0 +1,14 @@
+2012-11-15  Emily Backes  lucca@accela.net
+
+	Update to 0.1.1.
+
+	Remove --auto from git gc invocation.
+
+	Add a ChangeLog.
+
+	Change to homedir after reading config file.
+
+2012-11-13  Emily Backes  lucca@accela.net
+
+	Original release 0.1.0.
+

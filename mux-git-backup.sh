@@ -1,5 +1,7 @@
 #! /bin/bash
 # Copyright (c) 2012, Emily Backes <lucca@accela.net>
+#
+# Version 0.1.1
 
 # Message handling helper-functions
 die () {
@@ -18,6 +20,9 @@ clean_exit () {
 
 # Load configuration
 . mux-git-backup.conf
+
+# Change to home directory before searching for the root
+cd
 
 # locate game root
 if [ -e "$GAME/mux.config" ]; then
@@ -141,8 +146,8 @@ git commit -q -a -m 'timed backup' || die "Git commit failed."
 git push -q "$BAREBD" master || die "Push to external repository failed."
 
 # Do basic gc work to conserve space
-git gc --auto --quiet || die "Failure in git gc of staging repository."
+git gc --quiet || die "Failure in git gc of staging repository."
 cd "$BAREBD"
-git gc --auto --quiet || die "Failure in git gc of bare repository."
+git gc --quiet || die "Failure in git gc of bare repository."
 
 clean_exit
